@@ -44,6 +44,8 @@ end
 
 group :development do
 	gem 'rails_best_practices'
+  gem 'better_errors'
+  gem 'binding_of_caller', platform: :ruby
   gem 'quiet_assets'
 end
 	
