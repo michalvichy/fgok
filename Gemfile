@@ -42,4 +42,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-gem 'rails_best_practices'
+group :development do
+	gem 'rails_best_practices'
+  gem 'quiet_assets'
+end
+	
