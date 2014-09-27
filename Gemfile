@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
+  gem 'spring-commands-cucumber'
 end
 
 group :development do
