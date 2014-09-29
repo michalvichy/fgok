@@ -2,15 +2,48 @@
 <html>
 <head>
   <title>Fgok</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
   <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class='row'>
+	<div class='col-md-3 col-sm-4 col-xs-12'>
+		<div class='col-left'>
+			<div id='logo'>
+				<%= image_tag 'logo.png' %>
+			</div>
+
+			<div class='panel'>
+		    <div class='panel-heading'>
+		      <h4 class='panel-title'>
+		        <a data-toggle='collapse' data-parent='#accordion' href='#collapseOne' class='expander'>
+		          <span class='glyphicon glyphicon-chevron-down'></span>
+		        </a>
+		      </h4>
+		    </div>
+		    <div id='collapseOne' class='panel-collapse collapse in'>
+		      <div class='panel-body'>
+		      	<ul id='menu' class='nav'>
+							<li id='home'><%= link_to 'Home', root_path %></li>
+						</ul>
+		      </div>
+		    </div>
+		  </div>			
+		</div>				
+	</div>
+
+	<div class='col-md-8 col-sm-8 col-xs-12'>
+		<div class='col-right'>
+			<%= yield %>				
+		</div>
+	</div>
+</div>
+
 
 </body>
 </html>

@@ -1,3 +1,96 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+@import url(http://fonts.googleapis.com/css?family=Philosopher);
+
+body {
+	background-color: $backgroundcolor;
+}
+
+img {
+	width: 100%;
+}
+
+.row {
+	padding: 5px;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.col-left {
+	height: 100%;
+	@media screen and (max-device-width: 640px) {
+		border-left: 1px solid #505F51;
+	}
+
+	#logo {
+		@media screen and (max-device-width: 640px) {
+			width: 75%;
+			margin: 0 auto;
+		}
+	}
+
+	.panel {
+		background-color: $backgroundcolor;
+		margin-left: 5px;
+		width: 95%;
+
+		.expander {
+			display: none;
+
+			@media screen and (max-device-width: 640px){
+				display: inline-block;
+			} 
+		}
+	}
+
+	#menu {
+		padding-top: 10px;
+		padding-left: 12px;
+		width: 95%;
+		@media screen and (max-width: 320px) {
+			padding-left: 4px;
+		}
+
+		li {
+			background-height: 20px;
+			background-repeat: no-repeat;
+			font-size: 20px;
+			height: 39px;
+			list-style: none;
+			padding: 5px;
+			font-family: Philosopher;
+		}
+	}
+}
+
+.col-right {
+	border-left: 1px solid #505F51;
+
+	.col-md-12 {
+		border-bottom: 1px solid #505F51;
+		margin-bottom: 10px;
+	}
+	.main-content {
+		height: 80%;
+		padding-top: 10px;
+
+		.carousel {
+			box-shadow: 2px 2px 5px grey;
+			margin: 0 auto;
+			width: 85%;
+		}
+
+		.title {
+			border-bottom: 1px solid #505F51;
+			margin-bottom: 3px;
+			font-family: 'Philosopher', sans-serif;
+			font-size: 35px;
+			text-align: center;
+			text-shadow: 1px 1px 10px #008ad0;
+
+			@media screen and (max-device-width: 320px) {
+				font-size: 27px;
+			}
+		}
+	}
+}
