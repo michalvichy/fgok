@@ -1,0 +1,17 @@
+<div class='all-articles'>
+  <h1>Aktualności</h1>
+<% @articles.each do |article| %>
+  <div class='article'>
+    <h3 class='title'><%= link_to article.title, article_path(article) %></h3>
+    <div class='body'>
+      <%= article.body %>
+    </div>
+    <p class='date'>Zamieszczono <%= article.created_at %></p>
+  </div>
+  <hr class='divider'>
+<% end %>
+</div>
+
+<%= link_to 'nowy post', new_article_path %>
+
+
