@@ -1,0 +1,17 @@
+<%= form_for dashboard_article do |f| %>
+  <% if dashboard_article.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= pluralize(dashboard_article.errors.count, 'error') %> prohibited this dashboard_article from being saved:</h2>
+
+      <ul>
+      <% dashboard_article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='actions'>
+    <%= f.submit %>
+  </div>
+<% end %>
