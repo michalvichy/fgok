@@ -1,5 +1,5 @@
 # Dashboard article controller
-class Dashboard::ArticlesController < ApplicationController
+class Dashboard::ArticlesController < DashboardsController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -5,9 +5,10 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
 
   let(:invalid_attributes) { { title: nil, body: nil } }
 
+  let!(:article) { create(:article) }
+
   describe 'GET index' do
     it 'assigns all dashboard_articles as @dashboard_articles' do
-      article = Article.create!
       get :index
       expect(assigns(:dashboard_articles)).to eq([article])
     end
@@ -15,7 +16,6 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
 
   describe 'GET show' do
     it 'assigns the requested dashboard_article as @article' do
-      article = Article.create!
       get :show, id: article
       expect(assigns(:dashboard_article)).to eq(article)
     end
@@ -30,7 +30,6 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
 
   describe 'GET edit' do
     it 'assigns the requested dashboard_article as @dashboard_article' do
-      article = Article.create!
       get :edit, id: article
       expect(assigns(:dashboard_article)).to eq(article)
     end
@@ -74,20 +73,17 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
       let(:new_attributes) { { title: 'BarFoo', title: 'Ipsum lorem' } }
 
       it 'updates the requested dashboard_article' do
-        article = Article.create!
         put :update, id: article, dashboard_article: new_attributes
         article.reload
         skip('Add assertions for updated state')
       end
 
       it 'assigns the requested dashboard_article as @dashboard_article' do
-        article = Article.create!
         put :update, id: article, dashboard_article: valid_attributes
         expect(assigns(:dashboard_article)).to eq(article)
       end
 
       it 'redirects to the dashboard_article' do
-        article = Article.create!
         put :update, id: article, dashboard_article: valid_attributes
         expect(response).to redirect_to(article)
       end
@@ -95,13 +91,11 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
 
     describe 'with invalid params' do
       it 'assigns the dashboard_article as @dashboard_article' do
-        article = Article.create!
         put :update, id: article, dashboard_article: invalid_attributes
         expect(assigns(:dashboard_article)).to eq(article)
       end
 
       xit 're-renders the "edit" template' do
-        article = Article.create!
         put :update, id: article, dashboard_article: invalid_attributes
         expect(response).to render_template('edit')
       end
@@ -110,17 +104,14 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
 
   describe 'DELETE destroy' do
     it 'destroys the requested dashboard_article' do
-      article = Article.create
       expect do
         delete :destroy, id: article
       end.to change(Article, :count).by(-1)
     end
 
     it 'redirects to the dashboard_articles list' do
-      article = Article.create!
       delete :destroy, id: article
       expect(response).to redirect_to(dashboard_articles_url)
     end
   end
-
 end

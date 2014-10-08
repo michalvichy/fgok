@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :articles, only: [:index, :show]
   resources :dashboards, only: [:index]
 
   namespace :dashboard do
