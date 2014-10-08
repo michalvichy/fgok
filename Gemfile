@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-cucumber'
   gem 'spring-commands-rspec'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -52,7 +53,7 @@ group :development do
   gem 'metric_fu'
   gem 'quiet_assets'
 end
-	
+
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
