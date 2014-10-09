@@ -1,6 +1,6 @@
 <h1>Editing dashboard_article</h1>
 
-<%= render 'form', article: @dashboard_article %>
+<%= render 'form', article: @article, url: dashboard_article_path(@article) %>
 
 <%= link_to 'Show', @dashboard_article %> |
 <%= link_to 'Back', dashboard_articles_path %>

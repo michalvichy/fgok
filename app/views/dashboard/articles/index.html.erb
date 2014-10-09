@@ -8,13 +8,13 @@
   </thead>
 
   <tbody>
-    <% @dashboard_articles.each do |dashboard_article| %>
+    <% @articles.each do |article| %>
       <tr>
-        <td><%= dashboard_article.title %></td>
-        <td><%= dashboard_article.body %></td>
-        <td><%= link_to 'Show', dashboard_article_path(dashboard_article) %></td>
-        <td><%= link_to 'Edit', edit_dashboard_article_path(dashboard_article) %></td>
-        <td><%= link_to 'Destroy', dashboard_article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= article.title %></td>
+        <td><%= article.body %></td>
+        <td><%= link_to 'Show', dashboard_article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_dashboard_article_path(article) %></td>
+        <td><%= link_to 'Destroy', dashboard_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
