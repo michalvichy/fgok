@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<div class='article'>
+  <h3 class='title'><%= @article.title %></h3>
+  <div class='body'>
+    <%= @article.body %>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_dashboard_article_path(@article) %> |
 <%= link_to 'Back', dashboard_articles_path %>
