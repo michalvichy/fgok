@@ -44,6 +44,7 @@ group :development, :test do
   gem 'spring-commands-cucumber'
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
+  gem 'traceroute'
 end
 
 group :development do
