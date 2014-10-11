@@ -12,6 +12,11 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
       get :index
       expect(assigns(:articles)).to eq([article])
     end
+
+    it 'render template "index"' do
+      get :index
+      expect(response).to render_template('index')
+    end
   end
 
   describe 'GET show' do
@@ -43,7 +48,7 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
         end.to change(Article, :count).by(1)
       end
 
-      it 'assigns a newly created dashboard_article as @dashboard_article' do
+      it 'assigns a newly created dashboard_article as @article' do
         post :create, article: valid_attributes
         expect(assigns(:article)).to be_a(Article)
         expect(assigns(:article)).to be_persisted
@@ -70,28 +75,34 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
 
   describe 'PUT update' do
     describe 'with valid params' do
-      let(:new_attributes) { { title: 'BarFoo', title: 'Ipsum lorem' } }
+      let(:new_attributes) { { title: 'BarFoo', body: 'Ipsum lorem' } }
+
+      before do
+        put :update, id: article, article: new_attributes
+      end
 
       it 'updates the requested dashboard_article' do
-        put :update, id: article, article: new_attributes
         article.reload
+        expect(assigns(:article).title).to eq new_attributes[:title]
+        expect(assigns(:article).body).to eq new_attributes[:body]
         skip('Add assertions for updated state')
       end
 
       it 'assigns the requested dashboard_article as @dashboard_article' do
-        put :update, id: article, article: valid_attributes
         expect(assigns(:article)).to eq(article)
       end
 
       it 'redirects to the dashboard_article' do
-        put :update, id: article, article: valid_attributes
         expect(response).to redirect_to(dashboard_article_path(article))
       end
     end
 
     describe 'with invalid params' do
-      it 'assigns the dashboard_article as @dashboard_article' do
+      before do
         put :update, id: article, article: invalid_attributes
+      end
+
+      it 'assigns the dashboard_article as @dashboard_article' do
         expect(assigns(:article)).to eq(article)
       end
 
