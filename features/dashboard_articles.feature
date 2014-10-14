@@ -7,3 +7,8 @@ Feature: Creating and modifying articles
     Given I go to dashboard article page
     When I create new article
     Then I should see it at index page
+
+  Scenario: New not empty article
+    Given I go to dashboard article page
+    When I create empty article
+    Then I should not see it was created
