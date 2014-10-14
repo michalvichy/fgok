@@ -17,6 +17,12 @@ RSpec.describe Dashboard::ArticlesController, type: :controller do
       get :index
       expect(response).to render_template('index')
     end
+
+    fit 'assigns last article as a first' do
+      create(:article)
+      get :index
+      expect(assigns(:articles).first).to eq Article.last
+    end
   end
 
   describe 'GET show' do
