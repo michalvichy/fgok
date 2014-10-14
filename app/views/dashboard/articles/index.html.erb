@@ -1,26 +1,21 @@
-<h1>Listing dashboard_articles</h1>
-<%= link_to 'Articles', articles_path %>
 
-<table>
+<table class='table'>
+  <caption><h2>Lista artykułów</h2></caption>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Tytuł</th>
+      <th colspan='3'>Treść</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', dashboard_article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_dashboard_article_path(article) %></td>
-        <td><%= link_to 'Destroy', dashboard_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.body %></td>
+      <td><%= link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), dashboard_article_path(article) %></td>
+      <td><%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_dashboard_article_path(article) %></td>
+      <td><%= link_to raw('<span class="glyphicon glyphicon-trash"></span>'), dashboard_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Article', new_dashboard_article_path %>
