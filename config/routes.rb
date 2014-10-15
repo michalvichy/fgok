@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :albums
-
+  resources :albums, only: [:index, :show]
   resources :articles, only: [:index, :show]
   resources :dashboards, only: [:index]
 
